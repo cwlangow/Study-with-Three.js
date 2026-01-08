@@ -20,15 +20,21 @@ cena.add(luzAmbiente, luzDirecional, luzDirecional.target)
 renderer.setSize(window.innerWidth, window.innerHeight)
 div3d.appendChild(renderer.domElement)
 
-loader.load('./assets/apartment.glb', (gltf) => {
-    root = gltf.scene
-    root.position.set(6, -1, 0)
-    root.rotation.x = .4
-    root.rotation.y = .4
-    root.rotation.z = 0.1
-    cena.add(root)
-    fly()
-})
+loader.load(
+    './assets/apartment.glb',
+    (gltf) => {
+        console.log('Modelo carregado')
+        root = gltf.scene
+        root.position.set(6, -1, 0)
+        root.rotation.x = .4
+        root.rotation.y = .4
+        root.rotation.z = 0.1
+        cena.add(root)
+        fly()
+    },
+    undefined,
+    (error) => {
+        console.error('Erro ao carregar GLB:', error)})
 
 function animate() {
     requestAnimationFrame(animate)
