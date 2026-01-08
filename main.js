@@ -21,7 +21,7 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 div3d.appendChild(renderer.domElement)
 
 loader.load(
-    'apartment.glb',
+    './assets/apartment.glb',
     (gltf) => {
         console.log('Modelo carregado')
         root = gltf.scene
