@@ -20,7 +20,7 @@ cena.add(luzAmbiente, luzDirecional, luzDirecional.target)
 renderer.setSize(window.innerWidth, window.innerHeight)
 div3d.appendChild(renderer.domElement)
 
-loader.load('assets/apartment.glb', (gltf) => {
+loader.load('./assets/apartment.glb', (gltf) => {
     root = gltf.scene
     root.position.set(6, -1, 0)
     root.rotation.x = .4
@@ -37,7 +37,7 @@ function animate() {
 
 camera.position.set(0, 0, 15)
 
-function fly(){
+function fly() {
     gsap.to(root.position, {
         y: -2,
         x: -5,
@@ -53,7 +53,7 @@ function fly(){
         scrollTrigger: {
             start: "25% 50%",
             end: "75% 50%",
-            scrub: 2
+            scrub: 1
         }
     })
     gsap.to(root.rotation, {
