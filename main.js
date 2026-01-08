@@ -34,7 +34,14 @@ loader.load(
     },
     undefined,
     (error) => {
-        console.error('Erro ao carregar GLB:', error)})
+        console.error('Erro ao carregar GLB:', error)
+    })
+
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
+    renderer.setSize(window.innerWidth, window.innerHeight)
+})
 
 function animate() {
     requestAnimationFrame(animate)
